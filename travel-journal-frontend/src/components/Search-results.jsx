@@ -3,7 +3,8 @@ import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
 
 class SearchResults extends Component {
-  render() {
+  
+    render() {
       console.log(this.props.match.params)
     return (
       <div>

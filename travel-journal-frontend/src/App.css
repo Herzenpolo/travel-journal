@@ -140,3 +140,67 @@
   border-right: transparent 1px solid;
   margin-bottom: 3em;
 }
+
+.journalEntryForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh
+}
+
+.journalEntryInput {
+  text-align: center;
+  margin: 1em;
+  border: 1px solid gray;
+  width: 80%;
+  border-top: transparent;
+  border-left: transparent;
+  border-right: transparent;
+}
+
+.review {
+  border-radius: 2% !important;
+  border: 1px solid gray !important;
+}
+
+.journalEntrySubmit {
+  text-decoration: underline !important;
+  color: darkgray;
+}
+
+.star-rating {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.star {
+  margin: 0;
+}
+
+.rating-title {
+  margin: 0
+}
+
+.star1:focus {
+  color:goldenrod;
+}
+
+.star2:focus {
+  color:goldenrod;
+}
+
+.star3:focus {
+  color:goldenrod;
+}
+
+.star4:focus {
+  color:goldenrod;
+}
+
+.star5:focus {
+  color:goldenrod;
+}

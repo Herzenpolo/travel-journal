@@ -8,6 +8,7 @@ import SearchByCity from "./components/Search-by-City";
 import SearchByCountry from "./components/Search-by-Country";
 import SearchByLocation from "./components/Search-by-Location";
 import SearchResults from "./components/Search-results";
+import IndividualResult from "./components/IndividualResult"
 
 
 class App extends Component {
@@ -39,24 +40,29 @@ class App extends Component {
           />
           <Route
             exact
+            path="/SearchByCity"
+            render={(props) => <SearchByCity {...props} />}
+          />
+          <Route
+            exact
             path="/SearchResults/:id"
             render={(props) => <SearchResults {...props} />}
           />
           <Route
             exact
-            path="/SearchByCity"
-            render={(props) => <SearchByCity {...props} />}
+            path="/SearchResults/:id/:location"
+            render={(props) => <IndividualResult {...props} />}
           />
         </Switch>
         <footer className = 'footerLinks'>
           <Link className = 'footerlink-container' to="/">
-            <img className = 'footer-icons' src= {require('./components/images/25694.svg')} alt="home" />
+            <img className = 'footer-icons' src= 'images/25694.svg' alt="home" />
           </Link>
           <a className = 'footerlink-container' href="https://www.instagram.com/">
-            <img className = 'footer-icons' src={require('./components/images/icons8-instagram-52.png')} alt="instagram" />
+            <img className = 'footer-icons' src='images/icons8-instagram-52.png' alt="instagram" />
           </a>
           <a className = 'footerlink-container' href="https://www.tripadvisor.com/">
-            <img className = 'footer-icons' src={require('./components/images/48942.svg')} alt="Trip Advisor" />
+            <img className = 'footer-icons' src= 'images/48942.svg' alt="Trip Advisor" />
           </a>
         </footer>
       </div>
