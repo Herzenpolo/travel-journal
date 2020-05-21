@@ -32,7 +32,7 @@ class SearchByCountry extends Component {
             placeholder="country"
             onChange={this.onChange}
           />
-          <Link to={`/SearchResults/country=${this.state.country}`}>
+          <Link to={`/SearchResults/${this.state.country}`}>
             <Button className="search-btn" type="serch" color="primary">
               {" "}
               Search!{" "}

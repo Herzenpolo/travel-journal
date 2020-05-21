@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
+import actions from './services/index'
+
+
+
 
 class JournalEntry extends Component {
   state = {
@@ -9,7 +13,13 @@ class JournalEntry extends Component {
     location: "",
     review: "",
     rating: 0,
+    visitDate: ''
   };
+
+  dbPost = async() => {
+    let res = await actions.postToDb(this.state)
+    console.log(res)
+  }
 
   onChange = (e) => {
     console.log(e.target.value);
@@ -25,6 +35,7 @@ class JournalEntry extends Component {
     console.log(this.state);
     return (
       <div>
+      {/* <button onClick = {this.dbPost}>backend check</button> */}
         <Link className="link-navBar" to="/Menu">
           {" "}
           <Button className="btn-navBar" color="primary">
@@ -62,6 +73,17 @@ class JournalEntry extends Component {
             placeholder="Review"
             onChange={this.onChange}
           />
+          <div className = 'date-div'>
+          <label className = 'dateLabel' htmlFor="visitDate">Visit Date:</label>
+            <input className = 'date-picker'
+              type="date"
+              id="visitDate"
+              name="visitDate"
+              min="2020-01-01"
+              max="2030-12-31"
+              onChange={this.onChange}
+            />
+          </div>
           <div className="star-rating">
             {" "}
             <p className="rating-title">Rating:</p>
@@ -107,7 +129,7 @@ class JournalEntry extends Component {
             </button>
           </div>
           <Link to={`/SearchResults/${this.state.city}/${this.state.location}`}>
-            <Button className="search-btn" type="serch" color="primary">
+            <Button className="search-btn" type="serch" color="primary" onClick={this.dbPost}>
               {" "}
               Submit!{" "}
             </Button>

@@ -51,7 +51,7 @@ setInput = (e) => this.setState({[e.target.name] : e.target.value})
             placeholder="Location"
             onChange={this.setInput}
           />
-          <Link to={`/SearchResults/q=${this.state.country}-${this.state.city}-${this.state.location}`}>
+          <Link to={`/SearchResults/${this.state.location}`}>
             <Button className="search-btn" type="search" color="primary">
               {" "}
               Search!{" "}

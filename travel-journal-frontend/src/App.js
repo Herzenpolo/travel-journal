@@ -45,7 +45,17 @@ class App extends Component {
           />
           <Route
             exact
-            path="/SearchResults/:id"
+            path="/SearchResults/:country"
+            render={(props) => <SearchResults {...props} />}
+          />
+          <Route
+            exact
+            path="/SearchResults/:city"
+            render={(props) => <SearchResults {...props} />}
+          />
+          <Route
+            exact
+            path="/SearchResults/:location"
             render={(props) => <SearchResults {...props} />}
           />
           <Route

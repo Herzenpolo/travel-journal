@@ -141,6 +141,10 @@
   margin-bottom: 3em;
 }
 
+.search-btn {
+  margin-top: 5em;
+}
+
 .journalEntryForm {
   display: flex;
   flex-direction: column;
@@ -175,6 +179,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  margin-top: 3em;
 }
 
 .star {
@@ -203,4 +208,29 @@
 
 .star5:focus {
   color:goldenrod;
+}
+
+
+.date-div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  width: 80%;
+  border: 1px grey solid;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.date-div label {
+  display: flex;
+  align-self: center;
+  justify-self: center;
+}
+
+
+.dateLabel {
+  padding: 0em;
+  margin: 0em;
 }
