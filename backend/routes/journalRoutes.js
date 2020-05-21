@@ -10,7 +10,8 @@ router.post("/journalEntry", (req, res, next) => {
   });
 
   router.get("/journalEntry", (req, res, next) => {
-    Journal.find().then((journalFromDb) => {
+    console.log(req.query.searchInput, req.params)
+    Journal.find({$or:[{country : req.query.searchInput}, {city:req.query.searchInput}, {location:req.query.searchInput}]}).then((journalFromDb) => {
       res.json({ journal : journalFromDb });
     });
   });
@@ -20,5 +21,6 @@ router.post("/journalEntry", (req, res, next) => {
       res.json({ journal : journalFromDb });
     });
   });
+
 
   module.exports = router;

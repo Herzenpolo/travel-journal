@@ -10,8 +10,12 @@ class SearchResults extends Component {
   };
 
   componentDidMount = () => {
-    Axios.get("http://localhost:5000/journalEntry").then((res) =>
-      this.setState({ locations: res.data.journal })
+    Axios.get("http://localhost:5000/journalEntry", {
+      params : {
+        searchInput : this.props.match.params.searchInput
+      }
+    }).then((res) =>
+    this.setState({locations:res.data.journal}) 
     );
   };
 
@@ -40,10 +44,9 @@ class SearchResults extends Component {
     console.log(this.state);
     return (
       <div>
-      
-      <Link className="link-navBar" to="/Menu">
+      <Link className="link-navBar" to="/">
           {" "}
-          <Button className="btn-back" color="danger">
+          <Button className="stubbornBtn" color="danger">
             {" "}
             Back{" "}
           </Button>{" "}

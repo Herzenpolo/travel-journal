@@ -36,13 +36,6 @@ class JournalEntry extends Component {
     return (
       <div>
       {/* <button onClick = {this.dbPost}>backend check</button> */}
-        <Link className="link-navBar" to="/Menu">
-          {" "}
-          <Button className="btn-navBar" color="primary">
-            {" "}
-            Menu{" "}
-          </Button>{" "}
-        </Link>
         <form className="journalEntryForm">
           <input
             className="journalEntryInput"

@@ -3,10 +3,6 @@ import "./App.css";
 import { Switch, Route, Link } from "react-router-dom";
 import Home from "./components/Home";
 import JournalEntry from "./components/Journal-Entry";
-import Menu from "./components/Menu";
-import SearchByCity from "./components/Search-by-City";
-import SearchByCountry from "./components/Search-by-Country";
-import SearchByLocation from "./components/Search-by-Location";
 import SearchResults from "./components/Search-results";
 import IndividualResult from "./components/IndividualResult"
 
@@ -22,42 +18,21 @@ class App extends Component {
             path="/JournalEntry"
             render={(props) => <JournalEntry {...props} />}
           />
-          <Route exact path="/Menu" render={(props) => <Menu {...props} />} />
           <Route
             exact
-            path="/SearchByCity"
-            render={(props) => <SearchByCity {...props} />}
+            path="/SearchResults/:searchInput"
+            render={(props) => <SearchResults {...props} />}
           />
-          <Route
+          {/* <Route
             exact
-            path="/SearchByCountry"
-            render={(props) => <SearchByCountry {...props} />}
-          />
-          <Route
-            exact
-            path="/SearchByLocation"
-            render={(props) => <SearchByLocation {...props} />}
-          />
-          <Route
-            exact
-            path="/SearchByCity"
-            render={(props) => <SearchByCity {...props} />}
-          />
-          <Route
-            exact
-            path="/SearchResults/:country"
+            path="/SearchResultscity/:city"
             render={(props) => <SearchResults {...props} />}
           />
           <Route
             exact
-            path="/SearchResults/:city"
+            path="/SearchResultslocation/:location"
             render={(props) => <SearchResults {...props} />}
-          />
-          <Route
-            exact
-            path="/SearchResults/:location"
-            render={(props) => <SearchResults {...props} />}
-          />
+          /> */}
           <Route
             exact
             path="/individualResult/:id"

@@ -25,13 +25,6 @@ componentDidMount = () => {
     
     return (
       <div>
-        <Link className="link-navBar" to="/Menu">
-          {" "}
-          <Button className="btn-navBar" color="primary">
-            {" "}
-            Menu{" "}
-          </Button>{" "}
-        </Link>
         <h2> {this.state.location.location} </h2>
         <h4> Rating: {this.state.location.rating}</h4>
         <h4> {this.state.location.city}, {this.state.location.country} </h4>
