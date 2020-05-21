@@ -17,7 +17,7 @@ class SearchByCountry extends Component {
         console.log(this.state)
     return (
       <div className="searchByCountry">
-        <Link className="link-navBar" to="/">
+        <Link className="link-navBar" to="/Menu">
           {" "}
           <Button className="btn-back" color="danger">
             {" "}

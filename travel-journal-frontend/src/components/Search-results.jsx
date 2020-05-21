@@ -19,14 +19,18 @@ class SearchResults extends Component {
     let newArr = [...this.state.locations];
     return newArr.map((eachLocation) => {
       return (
-        <div className = 'searchResultsList'>
-          <Link className = 'searchResultsLink' to={`/individualResult/${eachLocation._id}`} key={eachLocation._id}>
-            <Button className = 'searchResultsButton'>
+       
+          <Link
+            className="searchResultsLink"
+            to={`/individualResult/${eachLocation._id}`}
+            key={eachLocation._id}
+          >
+            <Button className="searchResultsButton">
               {" "}
               {eachLocation.location} | {eachLocation.rating}{" "}
             </Button>{" "}
           </Link>
-        </div>
+
       );
     });
   };
@@ -36,14 +40,15 @@ class SearchResults extends Component {
     console.log(this.state);
     return (
       <div>
-        <Link className="link-navBar" to="/Menu">
+      
+      <Link className="link-navBar" to="/Menu">
           {" "}
           <Button className="btn-back" color="danger">
             {" "}
             Back{" "}
           </Button>{" "}
         </Link>
-        {this.listResult()}
+      <div><section className="searchResultsContainer">{this.listResult()}</section> </div>
       </div>
     );
   }

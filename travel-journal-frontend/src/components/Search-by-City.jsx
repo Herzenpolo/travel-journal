@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Button } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+
 
 class SearchByCity extends Component {
   state = {
@@ -11,12 +12,13 @@ class SearchByCity extends Component {
     console.log(e.target.value);
     this.setState({ city: e.target.value });
   };
-
+  
   render() {
     console.log(this.state);
+   
     return (
       <div className="searchByCity">
-        <Link className="link-navBar" to="/">
+        <Link className="link-navBar" to="/Menu">
           {" "}
           <Button className="btn-back" color="danger">
             {" "}

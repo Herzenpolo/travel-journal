@@ -22,7 +22,7 @@ setInput = (e) => this.setState({[e.target.name] : e.target.value})
             Menu{" "}
           </Button>{" "}
         </Link> */}
-        <Link className="link-navBar" to="/">
+        <Link className="link-navBar" to="/Menu">
           {" "}
           <Button className="btn-back" color="danger">
             {" "}
