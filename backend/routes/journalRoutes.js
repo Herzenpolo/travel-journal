@@ -15,5 +15,10 @@ router.post("/journalEntry", (req, res, next) => {
     });
   });
 
+  router.get("/journalEntry/:id", (req, res, next) => {
+    Journal.findById(req.params.id).then((journalFromDb) => {
+      res.json({ journal : journalFromDb });
+    });
+  });
 
   module.exports = router;

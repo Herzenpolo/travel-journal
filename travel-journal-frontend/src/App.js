@@ -60,7 +60,7 @@ class App extends Component {
           />
           <Route
             exact
-            path="/SearchResults/:id/:location"
+            path="/individualResult/:id"
             render={(props) => <IndividualResult {...props} />}
           />
         </Switch>

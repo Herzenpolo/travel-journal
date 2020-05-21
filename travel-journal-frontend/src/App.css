@@ -234,3 +234,21 @@
   padding: 0em;
   margin: 0em;
 }
+
+.searchResultsList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchResultsLink {
+  width: 100% !important;
+  text-align: center;
+}
+
+.searchResultsButton {
+  width: 80% !important;
+  margin: 0.2em;
+}

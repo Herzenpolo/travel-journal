@@ -1,19 +1,39 @@
 import React, { Component } from "react";
 import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
-import actions from './services/index'
-import Axios from "axios"
-
+import actions from "./services/index";
+import Axios from "axios";
 
 class SearchResults extends Component {
+  state = {
+    locations: [],
+  };
 
-state = {
-  locations : []
-}
+  componentDidMount = () => {
+    Axios.get("http://localhost:5000/journalEntry").then((res) =>
+      this.setState({ locations: res.data.journal })
+    );
+  };
 
+  listResult = () => {
+    let newArr = [...this.state.locations];
+    return newArr.map((eachLocation) => {
+      return (
+        <div className = 'searchResultsList'>
+          <Link className = 'searchResultsLink' to={`/individualResult/${eachLocation._id}`} key={eachLocation._id}>
+            <Button className = 'searchResultsButton'>
+              {" "}
+              {eachLocation.location} | {eachLocation.rating}{" "}
+            </Button>{" "}
+          </Link>
+        </div>
+      );
+    });
+  };
 
   render() {
     console.log(this.props.match.params);
+    console.log(this.state);
     return (
       <div>
         <Link className="link-navBar" to="/Menu">
@@ -23,6 +43,7 @@ state = {
             Back{" "}
           </Button>{" "}
         </Link>
+        {this.listResult()}
       </div>
     );
   }
