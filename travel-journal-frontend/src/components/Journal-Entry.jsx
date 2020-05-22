@@ -16,9 +16,9 @@ class JournalEntry extends Component {
   };
 
   dbPost = async() => {
+    alert(`${this.state.location} has been added to the database`)
     let res = await actions.postToDb(this.state)
     console.log(res)
-    alert(`${this.state.location} has been added to the database`)
   }
 
   onChange = (e) => {

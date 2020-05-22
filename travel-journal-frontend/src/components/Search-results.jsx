@@ -10,7 +10,7 @@ class SearchResults extends Component {
   };
 
   componentDidMount = () => {
-    Axios.get("http://localhost:5000/journalEntry", {
+    Axios.get("https://travel-journal-db.herokuapp.com/journalEntry", {
       params : {
         searchInput : this.props.match.params.searchInput
       }
