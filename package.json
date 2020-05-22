@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/Herzenpolo/travel-journal/issues"
   },
-  "homepage": "https://github.com/Herzenpolo/travel-journal#readme"
+  "homepage": "https://github.com/Herzenpolo/travel-journal#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0"
+  }
 }

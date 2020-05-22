@@ -6,9 +6,13 @@ const app = express();
 const passport = require("./config/passport");
 const journalRoutes = require("./routes/journalRoutes");
 const bodyParser = require("body-parser");
+require('dotenv').config();
+
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/travel-journal'
+console.log('Connecting DB to ', MONGODB_URI)
 
 mongoose
-  .connect("mongodb://localhost:27017/travel-journal", {
+  .connect(MONGODB_URI, {
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -24,7 +28,7 @@ mongoose
 app.use(
   cors({
     credentials: true,
-    origin: ["http://localhost:3000", "add netlify link"], //Swap this with the client url
+    origin: ["http://localhost:3000", "https://adoring-curran-da4c60.netlify.app"], //Swap this with the client url
   })
 );
 

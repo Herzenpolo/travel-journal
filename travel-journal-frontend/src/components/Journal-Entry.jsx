@@ -133,6 +133,7 @@ class JournalEntry extends Component {
             </Button>
           </Link>
         </form>
+        <div className = ''></div>
       </div>
     );
   }
