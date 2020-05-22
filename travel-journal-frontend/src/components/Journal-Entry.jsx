@@ -18,6 +18,7 @@ class JournalEntry extends Component {
   dbPost = async() => {
     let res = await actions.postToDb(this.state)
     console.log(res)
+    alert(`${this.state.location} has been added to the database`)
   }
 
   onChange = (e) => {
@@ -120,7 +121,7 @@ class JournalEntry extends Component {
               ☆
             </button>
           </div>
-          <input type="file" id="myFile" name="pictureUrl" onChange = {this.onChange}/>
+          {/* <input type="file" id="myFile" name="pictureUrl" onChange = {this.onChange}/> */}
           <Link to={`/`}>
             <Button
               className="search-btn"
@@ -133,7 +134,7 @@ class JournalEntry extends Component {
             </Button>
           </Link>
         </form>
-        <div className = ''></div>
+        
       </div>
     );
   }
