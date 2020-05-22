@@ -1,10 +1,8 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
-import actions from './services/index'
-
-
-
+import actions from "./services/index";
+import ReactFileUploadMobile from "react-file-upload-mobile";
 
 class JournalEntry extends Component {
   state = {
@@ -13,7 +11,8 @@ class JournalEntry extends Component {
     location: "",
     review: "",
     rating: 0,
-    visitDate: ''
+    visitDate: "",
+    pictureUrl: ""
   };
 
   dbPost = async() => {
@@ -22,20 +21,20 @@ class JournalEntry extends Component {
   }
 
   onChange = (e) => {
+    e.preventDefault()
     console.log(e.target.value);
     this.setState({ [e.target.name]: e.target.value });
   };
 
   onClick = (e) => {
     e.preventDefault();
-    this.setState({ rating: e.target.value });
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   render() {
     console.log(this.state);
     return (
       <div>
-      {/* <button onClick = {this.dbPost}>backend check</button> */}
         <form className="journalEntryForm">
           <input
             className="journalEntryInput"
@@ -55,7 +54,7 @@ class JournalEntry extends Component {
             className="journalEntryInput"
             type="text"
             name="location"
-            placeholder="Location"
+            placeholder="Place or Experience"
             onChange={this.onChange}
           />
           <textarea
@@ -66,9 +65,9 @@ class JournalEntry extends Component {
             placeholder="Review"
             onChange={this.onChange}
           />
-          <div className = 'date-div'>
-          <label className = 'dateLabel' htmlFor="visitDate">Visit Date:</label>
-            <input className = 'date-picker'
+          <div className="date-div">
+            <input
+              className="date-picker"
               type="date"
               id="visitDate"
               name="visitDate"
@@ -121,8 +120,14 @@ class JournalEntry extends Component {
               ☆
             </button>
           </div>
-          <Link to={`/SearchResults/${this.state.city}/${this.state.location}`}>
-            <Button className="search-btn" type="serch" color="primary" onClick={this.dbPost}>
+          <input type="file" id="myFile" name="pictureUrl" onChange = {this.onChange}/>
+          <Link to={`/`}>
+            <Button
+              className="search-btn"
+              type="serch"
+              color="primary"
+              onClick={this.dbPost}
+            >
               {" "}
               Submit!{" "}
             </Button>

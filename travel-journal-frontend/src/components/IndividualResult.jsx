@@ -25,10 +25,15 @@ componentDidMount = () => {
     
     return (
       <div>
-        <h2> {this.state.location.location} </h2>
-        <h4> Rating: {this.state.location.rating}</h4>
-        <h4> {this.state.location.city}, {this.state.location.country} </h4>
-        <p> {this.state.location.review} </p>
+        
+        <section className = 'indSearchRes'>
+        <img className="home-img" src="/images/IMG_2696.jpeg" alt="japan" />
+          <h2> {this.state.location.location} </h2>
+          <hr/>
+          <h4> Rating: {this.state.location.rating}</h4>
+          <h4> {this.state.location.city}, {this.state.location.country} </h4>
+          <p> {this.state.location.review} </p>
+        </section>
         
       </div>
     );

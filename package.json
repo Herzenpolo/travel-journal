@@ -1,0 +1,22 @@
+{
+  "name": "travel-journal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preinstall": "echo --- preinstall --- && cd backend && npm install && cd ../travel-journal-frontend && npm install && npm run build && cd ..",
+    "start": "echo --- start --- && cd backend && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Herzenpolo/travel-journal.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Herzenpolo/travel-journal/issues"
+  },
+  "homepage": "https://github.com/Herzenpolo/travel-journal#readme"
+}

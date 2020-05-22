@@ -220,6 +220,7 @@
   border-top: none;
   border-left: none;
   border-right: none;
+  text-align: center;
 }
 
 .date-div label {
@@ -274,7 +275,7 @@
 .homeJournal {
   color: white;
   background-color: lightskyblue;
-  border-radius: 2%;
+  border-radius: 0.25rem;
   border: none;
   width: 80%;
 }
@@ -295,4 +296,26 @@
 
 .home-img {
   width: 100%;
+}
+
+.indSearchRes {
+  height: 100%; 
+  text-align: center;
+}
+
+.indSearchRes hr {
+  width: 80%;
+  height: 1px;
+}
+
+.indSearchRes h2 {
+  margin-top: 2em;
+}
+
+.date-picker {
+  background-color: white;
+  color: grey;
+  border: none;
+  margin-left: 1em;
+  text-align: center;
 }

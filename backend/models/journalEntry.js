@@ -7,7 +7,8 @@ const journalSchema = new Schema({
     country: String,
     rating: Number,
     review: String,
-    visitDate: Date
+    visitDate: Date,
+    picture: String
 })
 
 module.exports = mongoose.model('Journal', journalSchema );
