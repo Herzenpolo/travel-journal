@@ -2,7 +2,7 @@ import React, { Component, useState } from "react";
 import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
 import actions from "./services/index";
-import ReactFileUploadMobile from "react-file-upload-mobile";
+
 
 class JournalEntry extends Component {
   state = {
