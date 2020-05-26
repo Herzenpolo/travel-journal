@@ -2,7 +2,7 @@ import React, { Component, useState } from "react";
 import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
 import actions from "./services/index";
-import AddThing from "./AddPicture"
+import service from '../components/services/handleUpload'
 
 
 class JournalEntry extends Component {
@@ -32,6 +32,49 @@ class JournalEntry extends Component {
     e.preventDefault();
     this.setState({ [e.target.name]: e.target.value });
   };
+
+  // testing file upload
+
+  handleChange = e => {  
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
+}
+
+// this method handles just the file upload
+handleFileUpload = e => {
+    console.log("The file to be uploaded is: ", e.target.files[0]);
+
+    const uploadData = new FormData();
+    // imageUrl => this name has to be the same as in the model since we pass
+    // req.body to .create() method when creating a new thing in '/api/things/create' POST route
+    uploadData.append("imageUrl", e.target.files[0]);
+    
+    service.handleUpload(uploadData)
+    .then(response => {
+        console.log('response is: ', response);
+        // after the console.log we can see that response carries 'secure_url' which we can use to update the state 
+        this.setState({ pictureUrl: response.secure_url });
+      })
+      .catch(err => {
+        console.log("Error while uploading the file: ", err);
+      });
+}
+
+// this method submits the form
+handleSubmit = e => {
+    e.preventDefault();
+    
+    service.saveNewThing(this.state)
+    .then(res => {
+        console.log('added: ', res);
+        // here you would redirect to some other page 
+    })
+    .catch(err => {
+        console.log("Error while adding the thing: ", err);
+    });
+}  
+
+//end testing file upload
 
   render() {
     console.log(this.state);
@@ -122,7 +165,12 @@ class JournalEntry extends Component {
               ☆
             </button>
           </div>
-          <AddThing />
+          
+                <input 
+                    type="file" 
+                    onChange={(e) => this.handleFileUpload(e)} /> 
+                
+    
           <Link to={`/`}>
             <Button
               className="search-btn"

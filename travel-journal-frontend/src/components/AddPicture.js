@@ -32,7 +32,7 @@ class AddThing extends Component {
         .then(response => {
             console.log('response is: ', response);
             // after the console.log we can see that response carries 'secure_url' which we can use to update the state 
-            this.setState({ imageUrl: response.secure_url });
+            this.setState({ pictureUrl: response.secure_url });
           })
           .catch(err => {
             console.log("Error while uploading the file: ", err);
@@ -57,13 +57,6 @@ class AddThing extends Component {
         return (
           <div>
             <form onSubmit={e => this.handleSubmit(e)}>
-                <input 
-                    type="text" 
-                    className="journalEntryInput"
-                    name="name" 
-                    placeholder = "Picture Title"
-                    value={ this.state.name } 
-                    onChange={ e => this.handleChange(e)} />
                 <input 
                     type="file" 
                     onChange={(e) => this.handleFileUpload(e)} /> 

@@ -27,7 +27,7 @@ componentDidMount = () => {
       <div>
         
         <section className = 'indSearchRes'>
-        <img className="home-img" src="/images/IMG_2696.jpeg" alt="japan" />
+        <img className="home-img" src={this.state.location.pictureUrl} alt="japan" />
           <h2> {this.state.location.location} </h2>
           <hr/>
           <h4> Rating: {this.state.location.rating}</h4>
