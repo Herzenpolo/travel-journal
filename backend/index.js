@@ -7,6 +7,12 @@ const passport = require("./config/passport");
 const journalRoutes = require("./routes/journalRoutes");
 const bodyParser = require("body-parser");
 require('dotenv').config();
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
+const auth = require ("./routes/auth")
+const imageUrls = require ("./routes/file-upload-routes")
+
+
 
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/travel-journal'
 console.log('Connecting DB to ', MONGODB_URI)
@@ -22,8 +28,19 @@ mongoose
   )
   .catch((err) => console.error("Error connecting to mongo", err));
 
-// app.use(passport.initialize());
-// app.use(passport.session());
+
+  app.use(
+    session({
+      resave: false,
+      saveUninitialized: true,
+      secret: "secret",
+      cookie: { maxAge: 1000 * 60 * 60 }
+    })
+  );
+
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(
   cors({
@@ -34,9 +51,12 @@ app.use(
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cookieParser());
 
 
 app.use("/", index);
 app.use("/", journalRoutes);
+app.use("/", auth)
+app.use("/", imageUrls)
 
 app.listen(process.env.PORT || 5000);

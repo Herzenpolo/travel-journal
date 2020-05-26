@@ -9,7 +9,7 @@ class IndividualResult extends Component {
     }
 
 componentDidMount = () => {
-    Axios.get(`http://localhost:5000/journalEntry/${this.props.match.params.id}`)
+    Axios.get(`https://travel-journal-db.herokuapp.com/journalEntry/${this.props.match.params.id}`)
     .then((res) => {
         console.log(res.data.journal)
         this.setState({

@@ -2,6 +2,7 @@ import React, { Component, useState } from "react";
 import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
 import actions from "./services/index";
+import AddThing from "./AddPicture"
 
 
 class JournalEntry extends Component {
@@ -121,7 +122,7 @@ class JournalEntry extends Component {
               ☆
             </button>
           </div>
-          {/* <input type="file" id="myFile" name="pictureUrl" onChange = {this.onChange}/> */}
+          <AddThing />
           <Link to={`/`}>
             <Button
               className="search-btn"
