@@ -14,7 +14,11 @@ class LogIn extends Component {
              console.log(user.data)
             this.props.setUser({...user.data})  
         })
-        .catch(({ response }) => console.error(response.data));
+        .catch(({ response }) => {
+            alert('Uh oh! Something is off, please try again')
+            console.error(response.data)
+            console.log(response)
+        });
     }
     render() {
         return (

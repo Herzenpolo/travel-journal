@@ -13,15 +13,19 @@ class SignUp extends Component {
                 console.log(user.data)
                 this.props.setUser({...user.data})  
             })
-            .catch(({ response }) => console.error(response.data));
+            .catch(({ response }) => {
+                alert('User already exists!')
+                console.log(response.data)
+                console.error(response.data)
+            });
     }
     render() {
         return (
             <Fragment>
                 <h2>SignUP</h2>
                 <form onSubmit={this.handleSubmit}>
-                    <input name="email" type="email" onChange={this.handleChange} />
-                    <input name="password" type="password" onChange={this.handleChange} />
+                    <input className="signUpForm" placeholder = "email" name="email" type="email" onChange={this.handleChange} />
+                    <input className="signUpForm" placeholder = "password" name="password" type="password" onChange={this.handleChange} />
                     <input type="submit" value="Sign Up"/>
                 </form>
             </Fragment>

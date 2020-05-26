@@ -27,19 +27,16 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state)
+    console.log(this.state.email)
     return (
       <div>
-        {this.state.email}
         <nav>
           <NavLink to="/">Home |</NavLink>
-
           {this.state.email ? (
             <Fragment>
               <NavLink onClick={this.logOut} to="/">
                 Log Out |
               </NavLink>
-              <NavLink to="/profile">Profile|</NavLink>
             </Fragment>
           ) : (
             <Fragment>
@@ -50,7 +47,7 @@ class App extends Component {
         </nav>
 
         <Switch>
-          <Route exact path="/" render={(props) => <Home {...props} />} />
+          <Route exact path="/" render={(props) => <Home {...props} user = {this.state.email} />} />
           <Route
             exact
             path="/JournalEntry"
@@ -61,16 +58,6 @@ class App extends Component {
             path="/SearchResults/:searchInput"
             render={(props) => <SearchResults {...props} />}
           />
-          {/* <Route
-            exact
-            path="/SearchResultscity/:city"
-            render={(props) => <SearchResults {...props} />}
-          />
-          <Route
-            exact
-            path="/SearchResultslocation/:location"
-            render={(props) => <SearchResults {...props} />}
-          /> */}
           <Route
             exact
             path="/individualResult/:id"
@@ -90,7 +77,7 @@ class App extends Component {
         </Switch>
         <footer className="footerLinks">
           <Link className="footerlink-container" to="/">
-            <img className="footer-icons" src="images/25694.svg" alt="home" />
+            <img className="footer-icons" src="images/icons8-home-50.png" alt="home" />
           </Link>
           <a className="footerlink-container" href="https://www.instagram.com/">
             <img

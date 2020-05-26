@@ -319,3 +319,18 @@
   margin-left: 1em;
   text-align: center;
 }
+
+.login-ccontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-btn {
+  background-color: lightseagreen !important
+}
+
+.sign-up-btn {
+  background-color: lightsalmon !important;
+}

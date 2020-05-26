@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { Button } from 'reactstrap'
-import { Link } from 'react-router-dom'
 import Axios from "axios";
 
 class IndividualResult extends Component {

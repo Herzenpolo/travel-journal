@@ -1,9 +1,8 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
 import actions from "./services/index";
-import service from '../components/services/handleUpload'
-
+import service from "../components/services/handleUpload";
 
 class JournalEntry extends Component {
   state = {
@@ -13,17 +12,17 @@ class JournalEntry extends Component {
     review: "",
     rating: 0,
     visitDate: "",
-    pictureUrl: ""
+    pictureUrl: "",
   };
 
-  dbPost = async() => {
-    alert(`${this.state.location} has been added to the database`)
-    let res = await actions.postToDb(this.state)
-    console.log(res)
-  }
+  dbPost = async () => {
+    alert(`${this.state.location} has been added to the database`);
+    let res = await actions.postToDb(this.state);
+    console.log(res);
+  };
 
   onChange = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     console.log(e.target.value);
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -35,46 +34,48 @@ class JournalEntry extends Component {
 
   // testing file upload
 
-  handleChange = e => {  
+  handleChange = (e) => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
-}
+  };
 
-// this method handles just the file upload
-handleFileUpload = e => {
+  // this method handles just the file upload
+  handleFileUpload = (e) => {
     console.log("The file to be uploaded is: ", e.target.files[0]);
 
     const uploadData = new FormData();
     // imageUrl => this name has to be the same as in the model since we pass
     // req.body to .create() method when creating a new thing in '/api/things/create' POST route
     uploadData.append("imageUrl", e.target.files[0]);
-    
-    service.handleUpload(uploadData)
-    .then(response => {
-        console.log('response is: ', response);
-        // after the console.log we can see that response carries 'secure_url' which we can use to update the state 
+
+    service
+      .handleUpload(uploadData)
+      .then((response) => {
+        console.log("response is: ", response);
+        // after the console.log we can see that response carries 'secure_url' which we can use to update the state
         this.setState({ pictureUrl: response.secure_url });
       })
-      .catch(err => {
+      .catch((err) => {
         console.log("Error while uploading the file: ", err);
       });
-}
+  };
 
-// this method submits the form
-handleSubmit = e => {
+  // this method submits the form
+  handleSubmit = (e) => {
     e.preventDefault();
-    
-    service.saveNewThing(this.state)
-    .then(res => {
-        console.log('added: ', res);
-        // here you would redirect to some other page 
-    })
-    .catch(err => {
-        console.log("Error while adding the thing: ", err);
-    });
-}  
 
-//end testing file upload
+    service
+      .saveNewThing(this.state)
+      .then((res) => {
+        console.log("added: ", res);
+        // here you would redirect to some other page
+      })
+      .catch((err) => {
+        console.log("Error while adding the thing: ", err);
+      });
+  };
+
+  //end testing file upload
 
   render() {
     console.log(this.state);
@@ -165,12 +166,9 @@ handleSubmit = e => {
               ☆
             </button>
           </div>
-          
-                <input 
-                    type="file" 
-                    onChange={(e) => this.handleFileUpload(e)} /> 
-                
-    
+
+          <input type="file" onChange={(e) => this.handleFileUpload(e)} />
+
           <Link to={`/`}>
             <Button
               className="search-btn"
@@ -183,7 +181,6 @@ handleSubmit = e => {
             </Button>
           </Link>
         </form>
-        
       </div>
     );
   }
