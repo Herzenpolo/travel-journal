@@ -48,7 +48,7 @@ conditionalRender = () => {
    )
   } else {
     return (
-      <div className = 'login-ccontainer'>
+      <div className = 'login-container'>
         <Link to={`/log-in`}>
               <Button className="search-btn login-btn" type="search" color="primary">
                 {" "}
@@ -72,8 +72,8 @@ conditionalRender = () => {
     console.log(this.props.user)
     console.log(this.state)
     return (
-      <div>
-        <img className="home-img" src="images/IMG_2103.jpeg" alt="japan" />
+      <div className = 'home-container'>
+        <div className = "home-img-container"><img className="home-img" src="images/IMG_2103.jpeg" alt="japan" /></div>
         {/* <div className="homeLink">
           {" "}
           <Link className="homeLinkJournal" to="/JournalEntry">

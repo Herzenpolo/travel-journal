@@ -295,7 +295,8 @@
 } 
 
 .home-img {
-  width: 100%;
+  height: 406px;
+  width: 100%
 }
 
 .indSearchRes {
@@ -320,7 +321,7 @@
   text-align: center;
 }
 
-.login-ccontainer {
+.login-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -334,3 +335,30 @@
 .sign-up-btn {
   background-color: lightsalmon !important;
 }
+
+
+/* Enter CSS for large Screens  */
+@media screen and (min-width: 416px) {
+    .home-img {
+      width: 100%;
+      height:100%
+    }
+    .footerLinks {
+      position: relative;
+    }
+    .home-img-container{
+      width: 50%
+    }
+    .homeLink{
+      width: 50%
+    }
+    .login-container{
+      width: 50%;
+    }
+    .home-container{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+  }
