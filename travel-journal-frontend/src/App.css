@@ -336,6 +336,27 @@
   background-color: lightsalmon !important;
 }
 
+.login-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginForm{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+
+.loginScreenBtn{
+  background-color: lightseagreen;
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+}
 
 /* Enter CSS for large Screens  */
 @media screen and (min-width: 973px) {

@@ -11,7 +11,8 @@ class SignUp extends Component {
         e.preventDefault()
             actions.signUp(this.state).then(user=> {
                 console.log(user.data)
-                this.props.setUser({...user.data})  
+                this.props.setUser({...user.data})
+                alert('Your account has been created!')
             })
             .catch(({ response }) => {
                 alert('User already exists!')
@@ -22,12 +23,14 @@ class SignUp extends Component {
     render() {
         return (
             <Fragment>
+            <div className="login-form-container">
                 <h2>SignUP</h2>
-                <form onSubmit={this.handleSubmit}>
-                    <input className="signUpForm" placeholder = "email" name="email" type="email" onChange={this.handleChange} />
-                    <input className="signUpForm" placeholder = "password" name="password" type="password" onChange={this.handleChange} />
-                    <input type="submit" value="Sign Up"/>
+                <form className="loginForm" onSubmit={this.handleSubmit}>
+                    <input className="signUpForm journalEntryInput" placeholder = "email" name="email" type="email" onChange={this.handleChange} />
+                    <input className="signUpForm journalEntryInput" placeholder = "password" name="password" type="password" onChange={this.handleChange} />
+                    <input  className="loginScreenBtn" type="submit" value="Sign Up" onClick = {event =>  window.location.href='/'}/>
                 </form>
+                </div>
             </Fragment>
         );
     }

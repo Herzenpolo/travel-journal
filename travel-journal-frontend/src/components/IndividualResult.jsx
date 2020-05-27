@@ -5,7 +5,12 @@ import actions from "./services/index";
 
 class IndividualResult extends Component {
   state = {
-    location: {},
+    location: '',
+    city: '',
+    country: '',
+    review: '',
+    rating: 0,
+    pictureUrl: '',
     edit: false,
   };
 
@@ -13,18 +18,25 @@ class IndividualResult extends Component {
     Axios.get(
       `https://travel-journal-db.herokuapp.com/journalEntry/${this.props.match.params.id}`
     ).then((res) => {
-      console.log(res.data.journal);
+      console.log(res.data.journal.location);
       this.setState({
-        location: res.data.journal,
+        _id : res.data.journal._id,
+        location: res.data.journal.location,
+        city: res.data.journal.city,
+        country: res.data.journal.country,
+        review: res.data.journal.review,
+        rating: res.data.journal.rating,
+        visitDate: res.data.journal.visitDate,
+        pictureUrl: res.data.journal.pictureUrl,
       });
     });
   };
 
-  dbPost = async () => {
+  updateDb = async () => {
     this.setState({edit : !this.state.edit})
-    // alert(`${this.state.location} has been added to the updated`);
-    // let res = await actions.postToDb(this.state);
-    // console.log(res);
+    alert(`${this.state.location} has been added to the updated`);
+    let res = await actions.updateDb(this.state);
+    console.log(res);
   };
 
   onClickEdit = () => {
@@ -32,7 +44,6 @@ class IndividualResult extends Component {
   };
 
   onChange = (e) => {
-    e.preventDefault();
     console.log(e.target.value);
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -44,9 +55,6 @@ class IndividualResult extends Component {
 
   render() {
     console.log(this.state);
-    let id = this.props.match.params.id;
-    console.log(id);
-
     return (
       <div>
         {this.state.edit === true ? (
@@ -56,7 +64,7 @@ class IndividualResult extends Component {
               className="journalEntryInput"
               name="location"
               onChange={this.onChange}
-              value={this.state.location.location}
+              placeholder={this.state.location}
             />
             <div className="star-rating">
               {" "}
@@ -107,27 +115,27 @@ class IndividualResult extends Component {
               className="journalEntryInput"
               name="city"
               onChange={this.onChange}
-              value={this.state.location.city}
+              placeholder={this.state.city}
             />
             <input
               type="text"
               className="journalEntryInput"
               name="country"
               onChange={this.onChange}
-              value={this.state.location.country}
+              placeholder={this.state.country}
             />
             <textarea
               className="journalEntryInput review"
               name="review"
               rows="5"
               columns="33"
-              value={this.state.location.review}
+              placeholder={this.state.review}
               onChange={this.onChange}
             />
             <Button
               className="search-btn"
               color="primary"
-              onClick={this.dbPost}
+              onClick={this.updateDb}
             >
               {" "}
               Save{" "}
@@ -138,19 +146,19 @@ class IndividualResult extends Component {
             <section className = "img-container">
               <img
                 className="home-img"
-                src={this.state.location.pictureUrl}
+                src={this.state.pictureUrl}
                 alt="japan"
               />
             </section>
             <section className="info-container">
-              <h2> {this.state.location.location} </h2>
+              <h2> {this.state.location} </h2>
               <hr/>
-              <h4> Rating: {this.state.location.rating}</h4>
+              <h4> Rating: {this.state.rating}</h4>
               <h4>
                 {" "}
-                {this.state.location.city}, {this.state.location.country}{" "}
+                {this.state.city}, {this.state.country}{" "}
               </h4>
-              <p> {this.state.location.review} </p>
+              <p> {this.state.review} </p>
               <Button onClick = {this.onClickEdit} color="primary"> Edit </Button>
             </section>
           </section>

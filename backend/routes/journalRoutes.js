@@ -24,8 +24,9 @@ router.post("/journalEntry", (req, res, next) => {
     });
   });
 
-  router.post("/journalEntry/:id", (req, res, next) => {
-    Journal.findByIdAndUpdate(req.params.id).then((journalFromDb) => {
+  router.post("/journalEntry/update", (req, res, next) => {
+    console.log(req.body)
+    Journal.findByIdAndUpdate({_id:req.body._id, city : req.body.city}).then((journalFromDb) => {
       console.log(journalFromDb)
       res.json(journalFromDb)
     })
