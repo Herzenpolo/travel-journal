@@ -172,7 +172,7 @@ class JournalEntry extends Component {
           <Link to={`/`}>
             <Button
               className="search-btn"
-              type="serch"
+              type="search"
               color="primary"
               onClick={this.dbPost}
             >

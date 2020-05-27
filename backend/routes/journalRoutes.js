@@ -24,5 +24,12 @@ router.post("/journalEntry", (req, res, next) => {
     });
   });
 
+  router.post("/journalEntry/:id", (req, res, next) => {
+    Journal.findByIdAndUpdate(req.params.id).then((journalFromDb) => {
+      console.log(journalFromDb)
+      res.json(journalFromDb)
+    })
+   });
+
 
   module.exports = router;

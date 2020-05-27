@@ -10,9 +10,10 @@ class Home extends Component {
     user: ''
 }
 
-componentDidMount = () => {
-  this.setState({user:this.props.user})
-}
+// componentDidMount = () => {
+//   console.log('hi', this.props.user)
+//   this.setState({user:this.props.user})
+// }
 
 onChange = (e) => {
   console.log(e.target.value);
@@ -20,7 +21,8 @@ onChange = (e) => {
 };
 
 conditionalRender = () => {
-  if (this.state.user) {
+  console.log(this.state, this.props)
+  if (this.props.user) {
    return  (
     <div className="homeLink">
       {" "}
