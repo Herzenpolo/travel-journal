@@ -17,6 +17,22 @@
   color: grey
 }
 
+h1, h2, h3 {
+  font-family: 'headers' !important;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+body {
+  font-family: 'MyFont' !important;
+  font-weight: bolder;
+}
+
+
+
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

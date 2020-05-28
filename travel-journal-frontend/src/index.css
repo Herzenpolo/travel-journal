@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: 'MyFont';
+  src: local('MyFont'), url('./components/fonts/Hero-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'headers';
+  src: local('headers'), url('./components/fonts/Perfograma-Regular.ttf');
+}
