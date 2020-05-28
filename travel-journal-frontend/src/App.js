@@ -72,7 +72,7 @@ class App extends Component {
           <Route
             exact
             path="/log-in"
-            render={(props) => <Login {...props} setUser={this.setUser} />}
+            render={(props) => <Login {...props} setUser={this.setUser} email = {this.state.email} />}
           />
           <Route component={NotFound} />
         </Switch>

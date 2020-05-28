@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import actions from "../services/index";
+import {Redirect} from 'react-router-dom'
 
 class LogIn extends Component {
   state = {};
@@ -13,9 +14,10 @@ class LogIn extends Component {
     actions
       .logIn(this.state)
       .then((user) => {
+        alert(`All set! you can head home now!`);
         console.log(user);
         this.props.setUser({ ...user.data });
-        alert(`All set! you can head home now!`);
+
       })
       .catch(({ response }) => {
         alert("Uh oh! Something is off, please try again");
@@ -27,6 +29,11 @@ class LogIn extends Component {
 
 
   render() {
+    console.log(this.props)
+    if (this.props.email) {
+    //  return <Redirect to = "/"/>
+    this.props.history.push('/')
+    }
     return (
       <Fragment>
         <div className="login-form-container">
@@ -46,8 +53,8 @@ class LogIn extends Component {
               placeholder="password"
               onChange={this.handleChange}
             />
-            <input className="loginScreenBtn" type="submit" value="Log In"  onClick = {event =>  window.location.href='/'}/>
-            {/* <input className="loginScreenBtn" type="submit" value="Log In" /> */}
+            {/* <input className="loginScreenBtn" type="submit" value="Log In"  onClick = {event =>  window.location.href='/'}/> */}
+            <input className="loginScreenBtn" type="submit" value="Log In" />
           </form>
         </div>
       </Fragment>

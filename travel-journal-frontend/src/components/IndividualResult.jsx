@@ -18,7 +18,7 @@ class IndividualResult extends Component {
     Axios.get(
       `https://travel-journal-db.herokuapp.com/journalEntry/${this.props.match.params.id}`
     ).then((res) => {
-      console.log(res.data.journal.location);
+      console.log(res.data.journal.pictureUrl);
       this.setState({
         _id : res.data.journal._id,
         location: res.data.journal.location,
@@ -27,7 +27,7 @@ class IndividualResult extends Component {
         review: res.data.journal.review,
         rating: res.data.journal.rating,
         visitDate: res.data.journal.visitDate,
-        pictureUrl: res.data.journal.pictureUrl,
+        pictureUrl: res.data.journal.pictureUrl ? res.data.journal.pictureUrl : '/images/default-image.png',
       });
     });
   };
@@ -145,7 +145,7 @@ class IndividualResult extends Component {
           <section className="indSearchRes">
             <section className = "img-container">
               <img
-                className="home-img"
+              className = "indRes-image"
                 src={this.state.pictureUrl}
                 alt="japan"
               />
