@@ -7,6 +7,16 @@
   pointer-events: none;
 }
 
+.homeTitle {
+  text-align: center;
+  position: relative;
+  height: 10vh
+}
+
+* {
+  color: grey
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -295,7 +305,6 @@
 } 
 
 .home-img {
-  height: 406px;
   width: 100%
 }
 
@@ -388,7 +397,6 @@ nav{
 @media screen and (min-width: 973px) {
     .home-img {
       width: 100%;
-      height:100%
     }
     .footerLinks {
       position: relative;
@@ -407,6 +415,7 @@ nav{
       flex-direction: row;
       align-items: center;
       justify-content: center;
+      height: 70vh;
     }
     .footerLinks{
       position: fixed;

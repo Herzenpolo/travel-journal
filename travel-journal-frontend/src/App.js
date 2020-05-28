@@ -33,9 +33,11 @@ class App extends Component {
         <nav>
           {this.state.email ? (
             <Fragment>
-              <NavLink className = "Nav-Btn" onClick={this.logOut} to="/">
-                Log Out 
-              </NavLink>
+              <section className = 'nav-bar'>
+                <NavLink className = "Nav-Btn" onClick={this.logOut} to="/">
+                  Log Out 
+                </NavLink>
+              </section>
             </Fragment>
           ) : (
             <Fragment>
