@@ -31,17 +31,18 @@ class App extends Component {
     return (
       <div>
         <nav>
-          <NavLink to="/">Home |</NavLink>
           {this.state.email ? (
             <Fragment>
-              <NavLink onClick={this.logOut} to="/">
-                Log Out |
+              <NavLink className = "Nav-Btn" onClick={this.logOut} to="/">
+                Log Out 
               </NavLink>
             </Fragment>
           ) : (
             <Fragment>
-              <NavLink to="/sign-up">Sign Up |</NavLink>
-              <NavLink to="/log-in">Log In |</NavLink>
+             <section className = "nav-bar">
+                <NavLink className = "Nav-Btn" to="/sign-up">Sign Up</NavLink>
+                <NavLink className = "Nav-Btn" to="/log-in">Log In</NavLink>
+             </section>
             </Fragment>
           )}
         </nav>

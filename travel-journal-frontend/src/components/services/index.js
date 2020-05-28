@@ -27,9 +27,7 @@ const actions = {
   updateDb: async (data) => {
     return await service.post(`/journalEntry/update`,data)
   },
-  // getDb: async () => {
-  //   return await service.get('/journalEntry')
-  // },
+ 
 };
 
 export default actions;

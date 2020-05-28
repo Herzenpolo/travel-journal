@@ -3,6 +3,7 @@ const router = express.Router();
 const Journal = require('../models/journalEntry')
 
 
+
 router.post("/journalEntry", (req, res, next) => {
    Journal.create(req.body).then((journals) => {   
     res.json(journals)
@@ -25,9 +26,9 @@ router.post("/journalEntry", (req, res, next) => {
   });
 
   router.post("/journalEntry/update", (req, res, next) => {
-    console.log(req.body)
-    Journal.findByIdAndUpdate({_id:req.body._id, city : req.body.city}).then((journalFromDb) => {
-      console.log(journalFromDb)
+    console.log(req.body, 'what exactly is this')
+    Journal.findByIdAndUpdate(req.body._id, {city : req.body.city, location:req.body.location, rating:req.body.rating, review:req.body.review, country:req.body.country}).then((journalFromDb) => {
+      console.log(journalFromDb, "what is going on here")
       res.json(journalFromDb)
     })
    });

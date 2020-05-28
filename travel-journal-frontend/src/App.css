@@ -358,6 +358,24 @@
   border-radius: 0.25rem;
 }
 
+.Nav-Btn{
+  background-color: transparent;
+  color: salmon;
+  border: salmon solid 1px;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  margin: 0.25em;
+
+}
+
+nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-content: flex-end;
+  position: fixed;
+}
+
 /* Enter CSS for large Screens  */
 @media screen and (min-width: 973px) {
     .home-img {

@@ -5,7 +5,10 @@ class SignUp extends Component {
     state = {
 
     } 
-    handleChange = e => this.setState({[e.target.name]: e.target.value})
+    handleChange = e => {
+        console.log(e.target.value)
+        this.setState({[e.target.name]: e.target.value})
+    }
 
     handleSubmit =  e => {
         e.preventDefault()
@@ -16,7 +19,7 @@ class SignUp extends Component {
             })
             .catch(({ response }) => {
                 alert('User already exists!')
-                console.log(response.data)
+                console.log(response)
                 console.error(response.data)
             });
     }
@@ -29,6 +32,7 @@ class SignUp extends Component {
                     <input className="signUpForm journalEntryInput" placeholder = "email" name="email" type="email" onChange={this.handleChange} />
                     <input className="signUpForm journalEntryInput" placeholder = "password" name="password" type="password" onChange={this.handleChange} />
                     <input  className="loginScreenBtn" type="submit" value="Sign Up" onClick = {event =>  window.location.href='/'}/>
+                    {/* <input  className="loginScreenBtn" type="submit" value="Sign Up"/> */}
                 </form>
                 </div>
             </Fragment>

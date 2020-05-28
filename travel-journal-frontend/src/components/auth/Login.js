@@ -1,32 +1,29 @@
 import React, { Component, Fragment } from "react";
 import actions from "../services/index";
-import { useHistory } from "react-router-dom";
 
 class LogIn extends Component {
   state = {};
-  handleChange = (e) => this.setState({ [e.target.name]: e.target.value });
+  handleChange = (e) => {
+    console.log(e.target.value)
+    this.setState({ [e.target.name]: e.target.value })
+  }
 
   handleSubmit = (e) => {
     e.preventDefault();
     actions
       .logIn(this.state)
       .then((user) => {
-        console.log(user.data);
+        console.log(user);
         this.props.setUser({ ...user.data });
         alert(`All set! you can head home now!`);
       })
       .catch(({ response }) => {
         alert("Uh oh! Something is off, please try again");
-        console.error(response.data);
         console.log(response);
+        console.error(response.data);
       });
   };
 
-  routeChange=()=> {
-    let path = `/`;
-    let history = useHistory();
-    history.push(path);
-  }
 
 
   render() {
@@ -50,6 +47,7 @@ class LogIn extends Component {
               onChange={this.handleChange}
             />
             <input className="loginScreenBtn" type="submit" value="Log In"  onClick = {event =>  window.location.href='/'}/>
+            {/* <input className="loginScreenBtn" type="submit" value="Log In" /> */}
           </form>
         </div>
       </Fragment>
