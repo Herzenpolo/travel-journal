@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Axios from "axios";
 import { Button } from "reactstrap";
 import actions from "./services/index";
+import { Link } from 'react-router-dom'
 
 class IndividualResult extends Component {
   state = {
@@ -55,6 +56,7 @@ class IndividualResult extends Component {
 
   render() {
     console.log(this.state);
+    {if (this.props.email) {
     return (
       <div>
         {this.state.edit === true ? (
@@ -165,7 +167,27 @@ class IndividualResult extends Component {
         )}
       </div>
     );
+        } else {
+          return (
+            <div className = "not-logged-in">
+              <h1>WHOOPS!</h1>
+              <p>Looks like you're not signed in, please head to our Sign in page!</p>
+              <Link to={`/`}>
+                  <Button
+                    className="search-btn"
+                    type="search"
+                    color="primary"
+                    
+                  >
+                    {" "}
+                    Home!{" "}
+                  </Button>
+                </Link>
+            </div>
+          )
+        }
   }
+}
 }
 
 export default IndividualResult;

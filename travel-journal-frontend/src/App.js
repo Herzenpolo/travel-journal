@@ -54,22 +54,22 @@ class App extends Component {
           <Route
             exact
             path="/JournalEntry"
-            render={(props) => <JournalEntry {...props} />}
+            render={(props) => <JournalEntry {...props} email = {this.state.email}/>}
           />
           <Route
             exact
             path="/SearchResults/:searchInput"
-            render={(props) => <SearchResults {...props} />}
+            render={(props) => <SearchResults {...props} email = {this.state.email}/>}
           />
           <Route
             exact
             path="/individualResult/:id"
-            render={(props) => <IndividualResult {...props} />}
+            render={(props) => <IndividualResult {...props} email = {this.state.email}/>}
           />
           <Route
             exact
             path="/sign-up"
-            render={(props) => <SignUp {...props} setUser={this.setUser} />}
+            render={(props) => <SignUp {...props} setUser={this.setUser} email = {this.state.email}/>}
           />
           <Route
             exact

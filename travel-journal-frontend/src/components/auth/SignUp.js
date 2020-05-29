@@ -24,6 +24,10 @@ class SignUp extends Component {
             });
     }
     render() {
+        if (this.props.email) {
+            //  return <Redirect to = "/"/>
+            this.props.history.push('/')
+            }
         return (
             <Fragment>
             <div className="login-form-container">
@@ -31,7 +35,7 @@ class SignUp extends Component {
                 <form className="loginForm" onSubmit={this.handleSubmit}>
                     <input className="signUpForm journalEntryInput" placeholder = "email" name="email" type="email" onChange={this.handleChange} />
                     <input className="signUpForm journalEntryInput" placeholder = "password" name="password" type="password" onChange={this.handleChange} />
-                    <input  className="loginScreenBtn" type="submit" value="Sign Up" onClick = {event =>  window.location.href='/'}/>
+                    <input  className="loginScreenBtn" type="submit" value="Sign Up"/>
                     {/* <input  className="loginScreenBtn" type="submit" value="Sign Up"/> */}
                 </form>
                 </div>

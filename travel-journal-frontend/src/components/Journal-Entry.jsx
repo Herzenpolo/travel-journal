@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Button } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import actions from "./services/index";
 import service from "../components/services/handleUpload";
 
@@ -79,6 +79,7 @@ class JournalEntry extends Component {
 
   render() {
     console.log(this.state);
+    {if (this.props.email) {
     return (
       <div>
         <form className="journalEntryForm">
@@ -183,6 +184,26 @@ class JournalEntry extends Component {
         </form>
       </div>
     );
+    } else {
+      return (
+        <div className = "not-logged-in">
+          <h1>WHOOPS!</h1>
+          <p>Looks like you're not signed in, please head to our Sign in page!</p>
+          <Link to={`/`}>
+              <Button
+                className="search-btn"
+                type="search"
+                color="primary"
+                
+              >
+                {" "}
+                Home!{" "}
+              </Button>
+            </Link>
+        </div>
+      )
+    }
+    }
   }
 }
 

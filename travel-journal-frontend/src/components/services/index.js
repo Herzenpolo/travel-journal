@@ -1,11 +1,10 @@
 import axios from 'axios';
-let baseURL;
+let baseURL = 'https://travel-journal-db.herokuapp.com';
 
-process.env.NODE_ENV === 'production'
-  //? (baseURL = 'here should be your production endpoint')
-  ? (baseURL = 'https://travel-journal-db.herokuapp.com')
-  : (baseURL = 'https://travel-journal-db.herokuapp.com'); //change to localhost later 
-  
+// process.env.NODE_ENV === 'production'
+//   //? (baseURL = 'here should be your production endpoint')
+//   ? (baseURL = 'https://travel-journal-db.herokuapp.com')
+//   : (baseURL = 'https://travel-journal-db.herokuapp.com');
 
 const service = axios.create({ withCredentials: true, baseURL });
 

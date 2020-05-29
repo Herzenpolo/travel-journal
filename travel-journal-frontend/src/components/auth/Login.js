@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import actions from "../services/index";
-import {Redirect} from 'react-router-dom'
+
 
 class LogIn extends Component {
   state = {};

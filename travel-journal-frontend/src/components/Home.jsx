@@ -76,7 +76,7 @@ conditionalRender = () => {
     console.log(this.state)
     return (
       <div>
-        <h1 className = "homeTitle">Travel Journal</h1>
+        <section className = "homeTitleContainer"><h1 className = "homeTitle">Travel Journal</h1></section>
         <div className = 'home-container'>
           <div className = "home-img-container"><img className="home-img" src={this.state.imageUrl[Math.floor(Math.random()*9)]} alt="japan" /></div>
           {this.conditionalRender()}
