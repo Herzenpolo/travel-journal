@@ -45,7 +45,7 @@ app.use(passport.session());
 app.use(
   cors({
     credentials: true,
-    origin: ["http://localhost:3000", "https://adoring-curran-da4c60.netlify.app"], //Swap this with the client url
+    origin: ["http://localhost:3000", "https://travelify-journalify.netlify.app/git"], //Swap this with the client url
   }) 
 );
 
