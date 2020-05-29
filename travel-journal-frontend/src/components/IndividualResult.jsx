@@ -35,7 +35,7 @@ class IndividualResult extends Component {
 
   updateDb = async () => {
     this.setState({edit : !this.state.edit})
-    alert(`${this.state.location} has been added to the updated`);
+    alert(`${this.state.location} has been updated`);
     let res = await actions.updateDb(this.state);
     console.log(res);
   };
