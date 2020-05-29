@@ -83,6 +83,7 @@ class JournalEntry extends Component {
     return (
       <div>
         <form className="journalEntryForm">
+        <h2 className = "journalEntryHeader"> Journal Entry </h2>
           <input
             className="journalEntryInput"
             type="text"
@@ -168,7 +169,7 @@ class JournalEntry extends Component {
             </button>
           </div>
 
-          <input type="file" onChange={(e) => this.handleFileUpload(e)} />
+          <input className = "pictureUpload" type="file"  onChange={(e) => this.handleFileUpload(e)} />
 
           <Link to={`/`}>
             <Button

@@ -8,15 +8,16 @@ class Home extends Component {
   state = {
     country : '',
     user: '',
-    imageUrl: ['images/picture1.jpeg','images/picture2.jpeg','images/picture3.jpeg','images/picture4.jpeg','images/picture5.jpeg','images/picture6.jpeg','images/picture7.jpeg','images/picture8.jpeg','images/picture9.jpeg']
+    imageUrl: ''
 }
 
-// componentDidMount = () => {
-//   console.log('hi', this.props.user)
-//   this.setState({user:this.props.user})
-// }
+componentDidMount = () => {
+  let images = ['images/picture1.jpeg','images/picture2.jpeg','images/picture3.jpeg','images/picture4.jpeg','images/picture5.jpeg','images/picture6.jpeg','images/picture7.jpeg','images/picture8.jpeg','images/picture9.jpeg']
+  this.setState({imageUrl : images[Math.floor(Math.random()*images.length)]})
+}
 
 onChange = (e) => {
+  e.preventDefault()
   console.log(e.target.value);
   this.setState({ country: e.target.value });
 };
@@ -78,7 +79,7 @@ conditionalRender = () => {
       <div>
         <section className = "homeTitleContainer"><h1 className = "homeTitle">Travel Journal</h1></section>
         <div className = 'home-container'>
-          <div className = "home-img-container"><img className="home-img" src={this.state.imageUrl[Math.floor(Math.random()*9)]} alt="japan" /></div>
+          <div className = "home-img-container"><img className="home-img" src={this.state.imageUrl} alt="japan" /></div>
           {this.conditionalRender()}
         </div>
       </div>

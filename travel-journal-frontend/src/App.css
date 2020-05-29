@@ -182,7 +182,7 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  height: 100vh
+  height: 90vh
 }
 
 .journalEntryInput {
@@ -241,6 +241,30 @@ body {
   color:goldenrod;
 }
 
+.star1:hover {
+  color:goldenrod;
+}
+
+.star2:hover {
+  color:goldenrod;
+}
+
+.star3:hover {
+  color:goldenrod;
+}
+
+.star4:hover {
+  color:goldenrod;
+}
+
+.star5:hover {
+  color:goldenrod;
+}
+
+.pictureUpload {
+  background-color: white;
+  margin-top: 1em !important;
+}
 
 .date-div {
   display: flex;
@@ -422,6 +446,11 @@ nav{
   justify-content: center;
   margin-top: 1em;
   text-align: center;
+}
+
+.starRating {
+  border: none;
+  background-color: white;
 }
 
 /* Enter CSS for large Screens  */
