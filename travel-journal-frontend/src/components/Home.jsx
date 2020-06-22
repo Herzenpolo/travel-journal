@@ -28,6 +28,16 @@ conditionalRender = () => {
    return  (
     <div className="homeLink">
       {" "}
+      <Link className="homeLinkBlog" to="/Blog">
+        <button className="homeBlog" onClick={this.onClick}>
+          Blog
+        </button>
+      </Link>
+      <Link className="homeLinkPlaces" to="/Places">
+        <button className="homePlaces" onClick={this.onClick}>
+          Places
+        </button>
+      </Link>
       <Link className="homeLinkJournal" to="/JournalEntry">
         <button className="homeJournal" onClick={this.onClick}>
           Add a Place
@@ -77,7 +87,7 @@ conditionalRender = () => {
     console.log(this.state)
     return (
       <div>
-        <section className = "homeTitleContainer"><h1 className = "homeTitle">Travel Journal</h1></section>
+        <section className = "homeTitleContainer"><h1 className = "homeTitle">Bubbles-n-Salt</h1></section>
         <div className = 'home-container'>
           <div className = "home-img-container"><img className="home-img" src={this.state.imageUrl} alt="japan" /></div>
           {this.conditionalRender()}

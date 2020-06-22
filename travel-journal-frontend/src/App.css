@@ -336,6 +336,24 @@ body {
   width: 80%;
 }
 
+.homeBlog {
+  color: white;
+  background-color: lightskyblue;
+  border-radius: 0.25rem;
+  border: none;
+  width: 80%;
+  margin-bottom: 1em;
+}
+
+.homePlaces {
+  color: white;
+  background-color: lightskyblue;
+  border-radius: 0.25rem;
+  border: none;
+  width: 80%;
+  margin-bottom: 1em;
+}
+
 .searchResultsBack {
   background: red !important;
 }

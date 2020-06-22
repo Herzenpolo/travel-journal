@@ -158,7 +158,7 @@ class IndividualResult extends Component {
               <h4> Rating: {this.state.rating}</h4>
               <h4>
                 {" "}
-                {this.state.city}, {this.state.country}{" "}
+                {this.state.city} {this.state.country}{" "}
               </h4>
               <p> {this.state.review} </p>
               <Button onClick = {this.onClickEdit} color="primary"> Edit </Button>
